@@ -1,5 +1,6 @@
 import os
 import re
+import datetime 
 import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
@@ -8,29 +9,57 @@ from sklearn.metrics.pairwise import cosine_similarity
 #--------some essential variables
 DATAPATH = "datasets/custom"
 ##users id which is passed 
+##these dats are handled by the othr developers
 USER_ID = 1
 TIME = "breakfast"
+RATING = 3
+TODAY = datetime.date.today().strftime('%d/%m/%Y')
+
 ##-------functions required are stored here
+##oads the csv file to the given variable as a pandas object
 def load_req_data(filename, data_path=DATAPATH):
     csv_path=os.path.join(data_path, filename)
     return pd.read_csv(csv_path, encoding='cp1252')
 
+def load_data_to_csv(filename, dataframe, data_path=DATAPATH):
+    csv_path=os.path.join(data_path, filename)
+    dataframe.to_csv(csv_path, mode = 'a',encoding='cp1252', index = False, header=False)
+    return
+
+
+##combines the values of the given columns
 def combine_features(row):
     return row['name'] + " " + row['description'] + " " + row['ingredients'] + " " + row['diet']
 
+##gets the name of the food from its index
 def get_index_from_name(name):
     return foods[foods.name == name].index.values[0]
 
+##gets the name of the food from its index
 def get_name_from_index(index):
     return foods[foods.index==index]['name'].values[0]
 
-def display_food(i, sorted_food_list):
-    nutrition = foods[foods.index == sorted_food_list[i][0]]['nutrition'].values[0]
+##displays the food with its nutritional value in the index inputted(absolute index of the data)
+def display_food(i):
+    nutrition = foods[foods.index == i]['nutrition'].values[0]
     nut = list(map(float,nutrition.split(',')))
-    print(f"{get_name_from_index(sorted_food_list[i][0])}: Energy={nut[0]} Calories, \
+    print(f"{get_name_from_index(i)}: Energy = {nut[0]} Calories, \
 Carbohydrate = {nut[1]} gm, Fats = {nut[2]} gm, Protein = {nut[3]} gm ")
 
+#function to compare the value of the ith indexed row's column to the given string
+def compare_with_foodvalue(i,column,string ):
+    return foods[foods.index == i][column].values[0]==string
 
+def user_datframe(user_id, date, time, food, rating):
+    return pd.DataFrame(
+    {
+        'user_id':[user_id],
+        'date':[date],
+        'time':[time],
+        'food':[rec_food],
+        'rating':[rating]
+    }
+)
 
 ####--- read from csv files
 #foods = pd.read_csv("datasets/custom/food.csv", encoding='cp1252')
@@ -85,7 +114,6 @@ if users[users['user_id']==USER_ID]['diet'].values[0] == "vegetarian":
             sorted_similar_foods.remove(food)
 
 
-
 # ##check for disease or allergy in ingredients
 for food in sorted_similar_foods[:]:
     ##make a list of string of the ingredients of food
@@ -108,47 +136,77 @@ for food in sorted_similar_foods[:]:
         print(get_name_from_index(food[0])," is removed")
         sorted_similar_foods.remove(food)
 
+print('------------------------------\n reaminder after removing based on time')
+
+for item in sorted_similar_foods:
+    display_food(item[0])
+print("----------------------------\n filtering out last five recommended:")
+
+##filter out last five recommended
+past_data = load_req_data("user_data.csv")
+past_data['date']=pd.to_datetime(past_data['date'])
+past_data.sort_values(['date','user_id'], inplace=True)
+past_data = past_data.loc[past_data['user_id'] == USER_ID]
+past_data = past_data.tail(5)
+print(past_data)
+for item in sorted_similar_foods[:]:
+    if get_name_from_index(item[0]) in past_data['food'].values:
+        print(get_name_from_index(item[0]),"is removed")
+        sorted_similar_foods.remove(item)
+#get name from index i [0] == past_data['food'].values
+
+
 
 print("----------------------------\nremaining foods:")
-for i in range(len(sorted_similar_foods)):
-    display_food(i, sorted_similar_foods)
-
+for item in sorted_similar_foods:
+    display_food(item[0])
 
 print("---------------------------\n Final top recommendation")
 ##show the final result
 ##nutrition calculation part left
     ###checking or doing calculation of nutrition is left
-display_food(0, sorted_similar_foods)
-
+display_food(sorted_similar_foods[0][0])
+rec_food=get_name_from_index(sorted_similar_foods[0][0])
 
 ##if the top rec food is a staple food then recommend the highest similar curry
-if foods[foods.index == sorted_similar_foods[0][0]]['type'].values[0]=="staple":
-    for i in range(len(sorted_similar_foods)):
-        if foods[foods.index == sorted_similar_foods[i][0]]['type'].values[0]=="curry":
-            display_food(i, sorted_similar_foods)
+if compare_with_foodvalue(sorted_similar_foods[0][0], 'type', 'staple'):
+    for item in sorted_similar_foods:
+        if compare_with_foodvalue(item[0], 'type', 'curry'):
+            display_food(item[0])
+            rec_food = rec_food + ',' + get_name_from_index(item[0])
             break
-elif foods[foods.index == sorted_similar_foods[0][0]]['type'].values[0]=="curry":
+elif compare_with_foodvalue(sorted_similar_foods[0][0], 'type', 'curry'):
     ####same wise if top recommended is a curry then recommend a companion staple food
-    for i in range(len(sorted_similar_foods)):
-        if foods[foods.index == sorted_similar_foods[i][0]]['type'].values[0]=="staple":
-            display_food(i, sorted_similar_foods)
+    for item in sorted_similar_foods:
+        if compare_with_foodvalue(item[0], 'type', 'staple'):
+            display_food(item[0])
+            rec_food = rec_food + ',' + get_name_from_index(item[0])
             break
+
+print("today's date",TODAY)
+
+
+##user data: user_id, date, time, food, ratings
+updated = user_datframe(USER_ID, TODAY, TIME, rec_food, RATING)
+
+#!!!!!! use this function below if you want to update to csv the current user data
+#load_data_to_csv('user_data.csv', updated)
 
 
 
 ####this is a basic version so far a lot more things need to added and organised which will be done tomorrow
 '''
 list of things to be added
--nutrition!!!!!
--dyanmic upgarding of tags(add words to tag as time passes by)!!!!
+-nutrition calculation(tougher than I thought)!!!!!
+-dynamic upgarding of tags(add words to tag as time passes by)!!!!(someone do it!)
 -improved database!
--record history of users in their personal database!!!
--using history remove the recently recommended dishes(must improve catalogue of dishes for this)!!!!
--think of a scaling alternative as this doesnt scale well for big datas!!
--encryption of user's sensitive info!!!
+-record history of users in their personal database!!! (DONE!)
+-using history remove the recently recommended dishes(must improve catalogue of dishes for this)!!!!(DONE)
+-think of a scaling alternative as this doesnt scale well for big datas!!<><>(later!)
+-encryption of user's sensitive info!!!(someone do it!)
 -make a diseases database that contains ingredients not to use!!!!
--implement these code in their functions!!
--implement in class if possible, otherwise not necessary!
+-implement these code in their functions!!<><><>
+-implement in class if possible, otherwise not necessary!<><><>
 '''
 
 ##[energy(Cal), carbohydrate(gm),fats(gm),protein(gm)]
