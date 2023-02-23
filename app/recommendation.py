@@ -49,7 +49,7 @@ def display_food(i):
 def display_food(i):
     nutrition = foods[foods.index == i]['nutrition'].values[0]
     nut = list(map(float,nutrition.split(',')))
-    print(f"{get_name_from_index(i)}: Energy = {nut[0]} Calories, \
+   
     print(f"{get_name_from_index(i)}: Energy = {nut[0]} Calories, \
 Carbohydrate = {nut[1]} gm, Fats = {nut[2]} gm, Protein = {nut[3]} gm ")
 
@@ -182,7 +182,7 @@ if compare_with_foodvalue(sorted_similar_foods[0][0], 'type', 'staple'):
             display_food(item[0])
             rec_food = rec_food + ',' + get_name_from_index(item[0])
             break
-elif compare_with_foodvalue(sorted_similar_foods[0][0], 'type', 'curry'):
+
 elif compare_with_foodvalue(sorted_similar_foods[0][0], 'type', 'curry'):
     ####same wise if top recommended is a curry then recommend a companion staple food
     for item in sorted_similar_foods:
