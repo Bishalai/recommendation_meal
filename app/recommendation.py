@@ -17,6 +17,7 @@ TODAY = datetime.date.today().strftime('%d/%m/%Y')
 
 ##-------functions required are stored here
 ##oads the csv file to the given variable as a pandas object
+##oads the csv file to the given variable as a pandas object
 def load_req_data(filename, data_path=DATAPATH):
     csv_path=os.path.join(data_path, filename)
     return pd.read_csv(csv_path, encoding='cp1252')
@@ -32,9 +33,11 @@ def combine_features(row):
     return row['name'] + " " + row['description'] + " " + row['ingredients'] + " " + row['diet']
 
 ##gets the name of the food from its index
+##gets the name of the food from its index
 def get_index_from_name(name):
     return foods[foods.name == name].index.values[0]
 
+##gets the name of the food from its index
 ##gets the name of the food from its index
 def get_name_from_index(index):
     return foods[foods.index==index]['name'].values[0]
@@ -42,7 +45,11 @@ def get_name_from_index(index):
 ##displays the food with its nutritional value in the index inputted(absolute index of the data)
 def display_food(i):
     nutrition = foods[foods.index == i]['nutrition'].values[0]
+##displays the food with its nutritional value in the index inputted(absolute index of the data)
+def display_food(i):
+    nutrition = foods[foods.index == i]['nutrition'].values[0]
     nut = list(map(float,nutrition.split(',')))
+    print(f"{get_name_from_index(i)}: Energy = {nut[0]} Calories, \
     print(f"{get_name_from_index(i)}: Energy = {nut[0]} Calories, \
 Carbohydrate = {nut[1]} gm, Fats = {nut[2]} gm, Protein = {nut[3]} gm ")
 
@@ -175,6 +182,7 @@ if compare_with_foodvalue(sorted_similar_foods[0][0], 'type', 'staple'):
             display_food(item[0])
             rec_food = rec_food + ',' + get_name_from_index(item[0])
             break
+elif compare_with_foodvalue(sorted_similar_foods[0][0], 'type', 'curry'):
 elif compare_with_foodvalue(sorted_similar_foods[0][0], 'type', 'curry'):
     ####same wise if top recommended is a curry then recommend a companion staple food
     for item in sorted_similar_foods:
