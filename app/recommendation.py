@@ -27,7 +27,6 @@ def load_data_to_csv(filename, dataframe, data_path=DATAPATH):
     dataframe.to_csv(csv_path, mode = 'a',encoding='cp1252', index = False, header=False)
     return
 
-
 ##combines the values of the given columns
 def combine_features(row):
     return row['name'] + " " + row['description'] + " " + row['ingredients'] + " " + row['diet']
@@ -42,9 +41,7 @@ def get_index_from_name(name):
 def get_name_from_index(index):
     return foods[foods.index==index]['name'].values[0]
 
-##displays the food with its nutritional value in the index inputted(absolute index of the data)
-def display_food(i):
-    nutrition = foods[foods.index == i]['nutrition'].values[0]
+
 ##displays the food with its nutritional value in the index inputted(absolute index of the data)
 def display_food(i):
     nutrition = foods[foods.index == i]['nutrition'].values[0]
@@ -59,21 +56,35 @@ def compare_with_foodvalue(i,column,string ):
 
 def user_datframe(user_id, date, time, food, rating):
     return pd.DataFrame(
-    {
-        'user_id':[user_id],
-        'date':[date],
-        'time':[time],
-        'food':[rec_food],
-        'rating':[rating]
-    }
-)
+        {
+            'user_id':[user_id],
+            'date':[date],
+            'time':[time],
+            'food':[rec_food],
+            'rating':[rating]
+        }
+    )
+
+def food_dataframe(user_id, name, description, nutrition, ingredient, time, diet, type_food):
+    return pd.DataFrame(
+        {
+            'user_id': [user_id], ##id of the user that creates the food
+            'date': [date], ##must be in format %d%m%Y 
+            'description': [description], ##force use to input a minimum of 5 words
+            'nutrition':[nutrition], ##nutrition obtained from the calculate_macronutrients() function
+            'ingredient':[ingredient], ##!!!!ingredients of the food, remove all the spaces in the string
+            'time':[time], ##time=breakfast,lunch,dinner
+            'diet':[diet], ##type of diet == vegetarian or non-vegetarian
+            'type':[type_food]    ##type= staple or curry or alone
+        }
+    )
+
 
 ##function to calculate the macronutrients of the list of ingredients
 ##obtained ingredient lits is a list of list with name of ingredient, wt in gms
 
 ##the obtained_ingredient list is obtained from the user along with the foods
 # the customized food is stored in other datas, here we are only calculating the nutrients value
-
 def calculate_macronutrients(obtained_ingredients_list):
     ##get our dats stored of ingredients
     ingredients_list = load_req_data("ingredients_list.csv")
@@ -354,7 +365,7 @@ list of things to be added
 -using history remove the recently recommended dishes(must improve catalogue of dishes for this)!!!!(DONE)
 -think of a scaling alternative as this doesnt scale well for big datas!!<><>(later!)
 -encryption of user's sensitive info!!!(someone do it!)
--make a diseases database that contains ingredients not to use!!!!
+-make a diseases database that contains ingredients not to use!!!!(DONE, needs improvement)
 DISCARDED!(someone handle it)
 -implement these code in their functions!!<><><>
 -implement in class if possible, otherwise not necessary!<><><>
