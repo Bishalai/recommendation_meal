@@ -1,4 +1,5 @@
-user_id,name,age,weight,height,sex,lifestyle,tags,diet,allergy,email,password
-1,bishal,21,59,165,M,lightlyactive,"nepali,oily,spicy,potato,momo",vegetarian,tofu,,
-2,aadarsh,22,80,175,M,moderateactive,"nepali,spicy,chilli,oil,potato,samosa,meat",non-vegetarian,chicken,,
-3,kaushal,22,62,172,M,veryactive,"nepali,oil,potato,rice,flour,chowmein",non-vegetarian,lentils,,
+user_id,name,age,weight,height,sex,lifestyle,tags,diet,disease,allergy,email,password
+1,bishal,21,59,165,M,lightlyactive,"nepali,oily,spicy,potato,momo",vegetarian,,tofu,,
+2,aadarsh,22,80,175,M,moderateactive,"nepali,spicy,chilli,oil,potato,samosa,meat",non-vegetarian,,chicken,,
+3,kaushal,22,62,172,M,veryactive,"nepali,oil,potato,rice,flour,chowmein",non-vegetarian,,lentils,,
+4,shantanu,69,54,162,M,sedentary,"nepali,thukpa,garlic,lentils,brinjal",vegetarian,"Diabetes,Arthritis,Cough",almonds,,

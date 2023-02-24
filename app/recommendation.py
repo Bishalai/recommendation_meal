@@ -9,8 +9,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 #--------some essential variables
 DATAPATH = "datasets/custom"
 ##users id which is passed 
-##these dats are handled by the othr developers
-USER_ID = 1
+##these dats are handled by the other developers
+USER_ID = 4
 TIME = "breakfast"
 RATING = 3
 TODAY = datetime.date.today().strftime('%d/%m/%Y')
@@ -50,7 +50,7 @@ def display_food(i):
     nutrition = foods[foods.index == i]['nutrition'].values[0]
     nut = list(map(float,nutrition.split(',')))
    
-    print(f"{get_name_from_index(i)}: Energy = {nut[0]} Calories, \
+    print(f"{get_name_from_index(i)}: Energy = {nut[0]} KCal, \
 Carbohydrate = {nut[1]} gm, Fats = {nut[2]} gm, Protein = {nut[3]} gm ")
 
 #function to compare the value of the ith indexed row's column to the given string
@@ -77,6 +77,7 @@ def user_datframe(user_id, date, time, food, rating):
 def calculate_macronutrients(obtained_ingredients_list):
     ##get our dats stored of ingredients
     ingredients_list = load_req_data("ingredients_list.csv")
+    ingredients_list.fillna(0)
     ##energy, carb, fat, protein 
     macro_nut = [0,0,0,0]
     for item in obtained_ingredients_list:
@@ -91,15 +92,16 @@ def calculate_macronutrients(obtained_ingredients_list):
 
 
 
-def calculate_user_macronutrients(current_user):
+def calculate_user_macronutrients(user_id = USER_ID):
+    ##get the wt, age, height and lifestyle:
+    ##select a row of user's data from user database
+    current_user = users.loc[users['user_id']==user_id]
     ##calories energy, carbohydrate, fats, protein the macros have a low and upper range
     ##using hams benedict equation
     ##for male and female
     if(current_user['sex'].values[0]=='M'):
-        print('Male')
         bmr = 66.5 + (13.75*current_user['weight'].values[0]) + (5.003*current_user['height'].values[0]) - (6.75*current_user['age'].values[0])
     elif (current_user['sex'].values[0]=='F'):
-        print('female')
         bmr = 655.1 + (9.53*current_user['weight'].values[0]) + (1.850*current_user['height'].values[0]) - (4.676*current_user['age'].values[0])
     else:
         bmr = 2000
@@ -141,6 +143,113 @@ def calculate_user_macronutrients(current_user):
 
     return current_user_macro
 
+##check veg function, takes sorted similar foods' list and removes foods based on user's diet
+def check_veg(sorted_similar_foods, user_id = USER_ID):
+    ##-- now filter out the ones that are veg or non veg, allergies and disease
+    if users[users['user_id']==user_id]['diet'].values[0] == "vegetarian":
+        for food in sorted_similar_foods[:]:
+            if foods[foods.index == food[0]]['diet'].values[0]=="non-vegetarian":
+                #print(get_name_from_index(food[0]), "is removed")
+                sorted_similar_foods.remove(food)
+    return sorted_similar_foods
+
+
+##check for ingrediients to be excluded as in allergy or diaseases
+def check_allergy(sorted_similar_foods, user_id = USER_ID):
+    ## this must be tailored for user// change after disease database added
+    ##get our dataset where we have the diseases and their ingredients to avoid
+    diseases=load_req_data('disease_list.csv')
+    # we dont want to deal with nans
+    diseases.fillna('placeholder',inplace=True)
+    print(diseases)
+    ##get the data of current user
+    current_user = users.loc[users['user_id']==USER_ID]
+    current_user.fillna('placeholder',inplace = True)
+    ##first take allergic ingredients
+    excluded = current_user['allergy'].values[0]
+    #map them into list of string, maybe one or more
+    excluded = list(map(str,excluded.split(',')))
+    ##do similar things with the diseases user have
+    user_disease = current_user['disease'].values[0]
+    dis = list(map(str,user_disease.split(',')))
+    ##for items in dis we get their respective ingredients
+    for item in dis:
+        #get ingredients and map them into list and combine with our allergies data
+        tmp_disease = diseases[diseases['disease']==item]['excluded_ingredients'].values[0]
+        tmp_disease = list(map(str,tmp_disease.split(',')))
+        excluded = excluded + tmp_disease
+    ## we have our ingredients to exclude// even if we get 'placeholder' value it is alright since placeholder
+    ##is not an ingredient so it doesnt matter and wont be excluded
+    exclude_ingredients = excluded
+    # ##check for disease or allergy in ingredients
+    for food in sorted_similar_foods[:]:
+        ##make a list of string of the ingredients of food
+        ingredients = (foods[foods.index == food[0]]['ingredients'].values[0])
+        ingred = list(map(str,ingredients.split(',')))
+        #print(ingred)
+        ##check if the list of ingredients in food contains the ingredients user must avoid
+        for item in exclude_ingredients: ##here we use the list of ingredients user should not eat
+            if(item in ingred):
+                #print(get_name_from_index(food[0])," is removed")
+                sorted_similar_foods.remove(food)
+                break
+    return sorted_similar_foods
+
+
+def check_time(sorted_similar_foods, time = TIME):
+    #print("-----------------------------\nremoving based on time")
+    ##check for the food time i.e. foods associated with lunch is only taken during lunch
+    for food in sorted_similar_foods[:]:
+        time_food = (foods[foods.index == food[0]]['time'].values[0])
+        time_food_list = list(map(str,time_food.split(',')))
+        if time not in time_food_list:
+            #print(get_name_from_index(food[0])," is removed")
+            sorted_similar_foods.remove(food)
+    return sorted_similar_foods
+
+
+def remove_recently_recommended(sorted_similar_foods,past_data, user_id=USER_ID):
+    ##filter out last five previously recommended
+    ##convert date from database to datetime object
+    past_data['date']=pd.to_datetime(past_data['date'], dayfirst=True)
+    ##sort based on date and user_id
+    past_data.sort_values(['date','user_id'], inplace=True)
+    ##get the datas for the current user
+    past_data = past_data.loc[past_data['user_id'] == user_id]
+    ##get the 5 most recent datas
+    past_data = past_data.tail(5)
+    ##now check if the recommended are in the list 
+    for item in sorted_similar_foods[:]:
+        if get_name_from_index(item[0]) in past_data['food'].values:
+            #print(get_name_from_index(item[0]),"is removed")
+            sorted_similar_foods.remove(item)
+    #get name from index i [0] == past_data['food'].values
+    return sorted_similar_foods
+
+
+def display_final_recommendation(sorted_similar_foods):
+    print("---------------------------\n Final top recommendation")
+    ##show the final result
+    ##nutrition calculation part left
+        ###checking or doing calculation of nutrition is left
+    display_food(sorted_similar_foods[0][0])
+    rec_food=get_name_from_index(sorted_similar_foods[0][0])
+    ##if the top rec food is a staple food then recommend the highest similar curry
+    if compare_with_foodvalue(sorted_similar_foods[0][0], 'type', 'staple'):
+        for item in sorted_similar_foods:
+            if compare_with_foodvalue(item[0], 'type', 'curry'):
+                display_food(item[0])
+                rec_foods = rec_food + ',' + get_name_from_index(item[0])
+                break
+    elif compare_with_foodvalue(sorted_similar_foods[0][0], 'type', 'curry'):
+        ####same wise if top recommended is a curry then recommend a companion staple food
+        for item in sorted_similar_foods:
+            if compare_with_foodvalue(item[0], 'type', 'staple'):
+                display_food(item[0])
+                rec_foods = rec_food + ',' + get_name_from_index(item[0])
+                break
+
+
 
 #----------------------------------------------------------------------------------------
 #end of functions section
@@ -152,7 +261,8 @@ def calculate_user_macronutrients(current_user):
 foods = load_req_data("food.csv")
 users = load_req_data("user_info.csv")
 past_data = load_req_data("user_data.csv")
-print("User is: ", users.loc[users['user_id']==USER_ID]['name'])
+
+print("User is: ", users.loc[users['user_id']==USER_ID]['name'].values[0])
 
 ##----select our tags and features
 
@@ -188,94 +298,33 @@ sorted_similar_foods = sorted(similar_foods,key=lambda x:x[1],reverse = True)
 # print("first batch of recommended without any constraints")
 # for i in range(0,6):
 #    print(get_name_from_index(sorted_similar_foods[i][0]))
-# print("----------------------------------------------")
-# print("now removing the foods based on ingredients")
 
-##-- now filter out the ones that are veg or non veg, allergies and disease
-if users[users['user_id']==USER_ID]['diet'].values[0] == "vegetarian":
-    for food in sorted_similar_foods[:]:
-        if foods[foods.index == food[0]]['diet'].values[0]=="non-vegetarian":
-            #print(get_name_from_index(food[0]), "is removed")
-            sorted_similar_foods.remove(food)
+##removing non veg items for veg users
+sorted_similar_foods = check_veg(sorted_similar_foods)
 
+##remove foods that contain ingredients that isnot suitable for user
+sorted_similar_foods = check_allergy(sorted_similar_foods)
 
-# ##check for disease or allergy in ingredients
-for food in sorted_similar_foods[:]:
-    ##make a list of string of the ingredients of food
-    ingredients = (foods[foods.index == food[0]]['ingredients'].values[0])
-    ingred = list(map(str,ingredients.split(',')))
-    #print(ingred)
-    ##check if the list of ingredients in food contains the ingredients user must avoid
-    for item in ['carrot','chicken']: ##here we use the list of ingredients user should not eat
-        if(item in ingred):
-            #print(get_name_from_index(food[0])," is removed")
-            sorted_similar_foods.remove(food)
-            break
+##remove foods not suitable for the current time i.e. breakfast, lunch, dinner
+sorted_similar_foods = check_time(sorted_similar_foods)
 
-#print("-----------------------------\nremoving based on time")
-##check for the food time i.e. foods associated with lunch is only taken during lunch
-for food in sorted_similar_foods[:]:
-    time_food = (foods[foods.index == food[0]]['time'].values[0])
-    time_food_list = list(map(str,time_food.split(',')))
-    if TIME not in time_food_list:
-        #print(get_name_from_index(food[0])," is removed")
-        sorted_similar_foods.remove(food)
+##remove 5 recently recommended foods
+sorted_similar_foods = remove_recently_recommended(sorted_similar_foods, past_data)
 
-# print('------------------------------\n reaminder after removing based on time')
-
-# for item in sorted_similar_foods:
-#     display_food(item[0])
-# print("----------------------------\n filtering out last five recommended:")
-
-##filter out last five recommended
-past_data['date']=pd.to_datetime(past_data['date'])
-past_data.sort_values(['date','user_id'], inplace=True)
-past_data = past_data.loc[past_data['user_id'] == USER_ID]
-past_data = past_data.tail(5)
-print(past_data)
-for item in sorted_similar_foods[:]:
-    if get_name_from_index(item[0]) in past_data['food'].values:
-        #print(get_name_from_index(item[0]),"is removed")
-        sorted_similar_foods.remove(item)
-#get name from index i [0] == past_data['food'].values
-
-
-
-# print("----------------------------\nremaining foods:")
-# for item in sorted_similar_foods:
-#     display_food(item[0])
-
-print("---------------------------\n Final top recommendation")
-##show the final result
-##nutrition calculation part left
-    ###checking or doing calculation of nutrition is left
-display_food(sorted_similar_foods[0][0])
-rec_food=get_name_from_index(sorted_similar_foods[0][0])
-
-##if the top rec food is a staple food then recommend the highest similar curry
-if compare_with_foodvalue(sorted_similar_foods[0][0], 'type', 'staple'):
-    for item in sorted_similar_foods:
-        if compare_with_foodvalue(item[0], 'type', 'curry'):
-            display_food(item[0])
-            rec_food = rec_food + ',' + get_name_from_index(item[0])
-            break
-
-elif compare_with_foodvalue(sorted_similar_foods[0][0], 'type', 'curry'):
-    ####same wise if top recommended is a curry then recommend a companion staple food
-    for item in sorted_similar_foods:
-        if compare_with_foodvalue(item[0], 'type', 'staple'):
-            display_food(item[0])
-            rec_food = rec_food + ',' + get_name_from_index(item[0])
-            break
+##display the top recommended
+##if it is curry, also search the most recommended staple food
+##of it is staple, also search the most recommended curry food
+display_final_recommendation(sorted_similar_foods)
 
 
 ##user data: user_id, date, time, food, ratings
+rec_food=get_name_from_index(sorted_similar_foods[0][0])
 updated = user_datframe(USER_ID, TODAY, TIME, rec_food, RATING)
-
 #!!!!!! use this function below if you want to update to csv the current user data
 #load_data_to_csv('user_data.csv', updated)
 
-###use the function
+
+###use the function to calculate macronutrition
 obtained_ingredients_list = [['Amaranth seed', 25],['Paneer', 20],['Curd', 40]]
 macro_nut = calculate_macronutrients(obtained_ingredients_list)
 print(f"{obtained_ingredients_list} has macro nutrients:")
@@ -283,28 +332,24 @@ print(f"Energy: {macro_nut[0]}Kcal, Carbohydrates: {macro_nut[1]}gm, Fats: {macr
 
 
 ##calculate recommended user macro nutrients:
-##get the wt, age, height and lifestyle:
-##select a row of user's data from user database
-current_user = users.loc[users['user_id']==USER_ID]
-
 ##get the info of macronutrients for the current user using function
-current_user_macro = calculate_user_macronutrients(current_user)
+current_user_macro = calculate_user_macronutrients()
 
 ##print the macronutrients values
-print("For the user:",users[users['user_id']==USER_ID]['name'].values[0].capitalize())
+print("For the user:",users[users['user_id']==USER_ID]['name'].values[0].capitalize()," The macronutrients:")
 print(f"Energy:{current_user_macro[0]} Kcal")
 print(f"Carbohydrates:{current_user_macro[1]} to {current_user_macro[2]} gms")
 print(f"Fats:{current_user_macro[3]} to {current_user_macro[4]} gms")
 print(f"Proteins:{current_user_macro[5]} to {current_user_macro[6]} gms")
 
 
-
 ####this is a basic version so far a lot more things need to added and organised which will be done tomorrow
 '''
 list of things to be added
--nutrition calculation(tougher than I thought)!!!!!(didnt go as thought...)
+-nutrition calculation(tougher than I thought)!!!!!(didnt go as thought...but DONE!!)
 -dynamic upgarding of tags(add words to tag as time passes by)!!!!(someone do it!)
 -improved database!
+-let the users add their own foods with ingredients whose nutrition is calculated by the fucntion above
 -record history of users in their personal database!!! (DONE!)
 -using history remove the recently recommended dishes(must improve catalogue of dishes for this)!!!!(DONE)
 -think of a scaling alternative as this doesnt scale well for big datas!!<><>(later!)
