@@ -1,0 +1,436 @@
+s.n.,ingredient,edibleportion,moisture,protein,fat,carbohydrate,energy,categories
+1,Amaranth seed,100,10.6,9.4,7.17,68.1,375,cereal
+2,Barely,100,12.5,11.5,1.3,69.6,336,cereal
+3,Buck wheat(whole),74,11.3,10.3,2.4,65.1,323,cereal
+4,Bajra,84,12.4,11.6,5,67.5,361,cereal
+5,Bamboo seed,100,7.8,13.1,1.1,75.9,367,cereal
+6,Buckwheat flour,,12.2,6.1,1.3,69.2,313,cereal
+7,Foxtail millet,79,11.2,12.3,4.3,60.9,331,cereal
+8,Finger milletRagi),100,13.1,7.3,1.3,72,328,cereal
+9,Prosomillet(chino),100,8.67,11,4.22,72.9,378,cereal
+10,French millet,59,11.9,12.5,1.1,70.4,341,cereal
+11,Jowar,100,11.9,10.4,1.9,72.6,349,cereal
+12,Maize green(tender),37,67.1,4.7,0.9,24.6,125,cereal
+13,Maize Dry,100,14.9,11.1,3.6,66.2,342,cereal
+14,Maize dry(Murali),,8.87,12.1,4.31,70.9,372,cereal
+15,Maize flour(yellow),100,12,9.2,3.9,72.1,360,cereal
+16,Maize flour(white),100,12,9.2,3.9,72.1,360,cereal
+17,Millet,100,14.4,7.7,1.2,70.1,322,cereal
+18,Maize granular,100,12,9,3.4,74.5,362,cereal
+19,Naked barley whiteUwa),100,10.9,12.6,1.6,70.5,346,cereal
+20,Naked barley blackUwa),100,12.1,10.4,1.75,70.9,340,cereal
+21,Uwa flour,100,7.17,9.6,2.6,76.7,369,cereal
+22,Oatmeal,100,10.7,13.6,7.6,62.8,374,cereal
+23,"Rice Parboiled,(hand pounded)",100,12.6,8.5,0.6,77.4,349,cereal
+24,Rice(raw)Milled),100,13.7,6.8,0.5,78.2,345,cereal
+25,RiceRaw)Handpounded),100,13.3,7.5,1,76.7,346,cereal
+26,Rice flakes,100,12.2,6.6,1.2,77.3,346,cereal
+27,"Rice parboiled,(Milled",100,13.3,6.4,0.4,79,345,cereal
+28,Rice Puff,100,14.7,7.5,0.1,73.6,325,cereal
+29,Rice bran,,11,13.5,16.2,48.4,393,cereal
+30,Semolina,100,,10.4,0.8,74.8,348,cereal
+31,Sorghum,100,14.3,7.6,2.4,74.7,357,cereal
+32,Sarvottam pitholito),100,2.68,21.29,10.84,61.7,427,cereal
+33,Taichin beaten rice,100,10.89,7.68,1.94,77.9,360,cereal
+34,Vermicelli,100,11.7,8.7,0.4,78.3,352,cereal
+35,Varagu,,12.9,6.7,0.7,67,310,cereal
+36,Varagu flour,100,12.5,6.1,1.3,69.2,313,cereal
+37,Wheat flourwhole),100,12.2,12.1,1.7,69.4,341,cereal
+38,Wheat flourrefined),100,13.3,11,0.9,73.9,348,cereal
+39,Wheat germ,100,5.2,29.2,7.4,53.3,397,cereal
+40,wheat bran,,11.9,14.6,3,66,397,cereal
+41,Bengal gramchickpea),100,9.9,20.8,5.6,59.8,372,pulse
+42,Black gram,100,10.9,24,1.4,59.6,347,pulse
+43,Broadbean,100,13.8,25,1.2,29.3,328,pulse
+44,Black bean,100,9.73,23.73,1.31,58.7,342,pulse
+45,Bhote simi,100,9.73,23.49,3.71,57.7,358,pulse
+46,Cow Pea,97,13.4,24.1,1,54.5,323,pulse
+47,Fieldbean dry(simi),100,9.6,24.9,1.3,60.1,347,pulse
+48,Gram Flour besan,100,11.6,17.9,4.3,63.5,364,pulse
+49,"Green gram(Dal),Green",100,10.1,24.5,1.2,59.9,348,pulse
+50,Green gram(whole),100,10.4,24,1.3,56.7,335,pulse
+51,Green peas dry,100,10.11,23.33,1.03,61.3,348,pulse
+52,Mung dal(yellow),100,8.77,26.71,0.93,58,348,pulse
+53,Horsegram black,100,11.8,22,0.5,57.2,321,pulse
+54,Horsegram red,100,12.7,21.11,0.85,57.4,322,pulse
+55,Khesari dal,100,10,28.2,0.6,56.6,345,pulse
+56,Katike Cow Pea,100,10.85,22.86,1.56,56.1,330,pulse
+57,Kause bean,100,9.5,18.04,5.26,62.5,369,pulse
+58,Lentil,100,12.4,25.1,0.7,59,343,pulse
+59,Moth beans,100,10.8,23.6,1.1,56.6,330,pulse
+60,Moth beans(Yellow),100,10.57,22.95,0.46,59.1,358,pulse
+61,Moth beans(Red),100,9.12,19.74,0.7,62.7,336,pulse
+62,Peasdry),100,16,19.7,1.9,55.7,319,pulse
+63,Rajmah,100,12,22.9,1.3,60.6,346,pulse
+64,Red gram dal,100,13.4,22.3,1.7,57.6,335,pulse
+65,Soyabeanblack),100,12.1,33.3,15,31.3,393,pulse
+66,SoyabeanBrown),100,8.1,43.2,19.5,20.9,432,pulse
+67,Soyabeanwhite),100,10.2,33.3,17.7,29.6,411,pulse
+68,Tarbare Simi(red),100,12,23.52,1.42,57.8,338,pulse
+69,Sprout bean,,85,13,0.2,0.5,56,pulse
+70,White peas big,100,12.3,23.3,0.8,58,332,pulse
+71,White bean,100,13.66,22.6,1.42,56.6,330,pulse
+72,Mung(Titura),100,8.6,26.2,1.3,59.5,355,pulse
+73,Tofu(Soybean product),,80.5,16.5,0.3,1.6,75,pulse
+74,NutrilaSoybean),100,10,46.9,1,33.2,329,pulse
+75,Amaranth(spined),,85,3,0.3,7,43,green leafy vegetables
+76,Amaranth(tender,,85.7,4,0.5,6.1,45,green leafy vegetables
+77,AsparagusKurilo),86.8,92.5,3.3,0.1,2.7,25,green leafy vegetables
+78,Agathi,,73.1,8.4,1.4,11.8,93,green leafy vegetables
+79,Aniseed leaves,84,88.46,2.86,0.59,5.2,38,green leafy vegetables
+80,Betheleaves,,89.6,3.7,0.4,2.9,30,green leafy vegetables
+81,Beet green,51,86.4,3.4,0.8,6.5,46,green leafy vegetables
+82,Buckwheat leaves,,89.78,3.92,0.11,3.8,31,green leafy vegetables
+83,Bengalgram leaves,92,73.4,7,1.4,14.1,97,green leafy vegetables
+84,Bottleguard leaves,,87.9,2.3,0.7,6.1,39,green leafy vegetables
+85,Broadbean leaves,,77.6,5.6,0.3,11.5,71,green leafy vegetables
+86,Brvssis sprouts,100,85.5,4.7,0.5,7.1,52,green leafy vegetables
+87,Cabbagegreen,88,91.9,1.8,0.1,4.6,27,green leafy vegetables
+88,Cabbage purple,90,91.6,1.9,0.2,3.5,11,green leafy vegetables
+89,"Cauliflower,Green",71,80,5.9,1.3,7.6,66,green leafy vegetables
+90,Cauliflower(flower only),100,88.48,0.75,2.4,6.6,41,green leafy vegetables
+91,Choisum Sag,,88.1,2.7,0.3,6.4,39,green leafy vegetables
+92,Chukandar,87.4,87.9,2.8,0.1,7.8,43,green leafy vegetables
+93,Chocho leaves,71.07,91.42,3.01,0.21,3.2,27,green leafy vegetables
+94,Coriander leaves,70,86.3,3.3,0.6,6.3,44,green leafy vegetables
+95,Carrot leaves,51,76.6,5.1,0.5,13.1,77,green leafy vegetables
+96,Celery leaves,,88,6.3,0.6,1.6,37,green leafy vegetables
+97,Colocasia leavesBlack variety),,78.8,6.8,2,8.1,77,green leafy vegetables
+98,Colocasia leavesGreen variety),,82.7,3.9,1.5,6.8,56,green leafy vegetables
+99,Colocasia leaves(dried),,9.3,13.7,5.9,42.3,277,green leafy vegetables
+100,Cowpea leaves,,89,3.4,0.7,4.1,38,green leafy vegetables
+101,Dundu,,91.39,2.57,0,3.66,25,green leafy vegetables
+102,Drumstick leaves,75,75.9,6.7,1.7,12.5,92,green leafy vegetables
+103,Fenugreek leaves,59,86.1,4.4,0.9,6,49,green leafy vegetables
+104,Garden cress,,82.3,5.8,1,8.7,67,green leafy vegetables
+105,Garden sorrel,100,91.9,0.6,0.2,5.1,25,green leafy vegetables
+106,Garlicstem& leaves,92,79.5,2.4,0.5,15.1,76,green leafy vegetables
+107,Gyanth Kobi,,89.6,2.6,1,6,43,green leafy vegetables
+108,Gyanth Kobi Leaves,,86,2.8,0.5,9.7,56,green leafy vegetables
+109,Gothale Sag,,83.8,2.07,0.4,9.6,51,green leafy vegetables
+110,jaluka Saag,,87,2.4,0.43,5.5,35,green leafy vegetables
+111,Khesari leaves,,84.2,6.1,1,5.5,55,green leafy vegetables
+112,Koiralo Sag,,78.1,3.6,1,9.7,62,green leafy vegetables
+113,Khole garden cress,,89.16,3.5,0.4,4.4,35,green leafy vegetables
+114,Knol-knol green,73,86.7,3.5,0.4,6.4,43,green leafy vegetables
+115,Kitchen garden persley,51,90.5,2.4,0.6,2.9,27,green leafy vegetables
+116,lettuce,66,93.4,2.1,0.3,2.5,21,green leafy vegetables
+117,love-lies bleeding,,90,3,0.7,2,26,green leafy vegetables
+118,Mint,45,84.9,4.8,0.6,5.8,48,green leafy vegetables
+119,Mustard leaves,,89.8,4,0.6,3.2,34,green leafy vegetables
+120,Nakore sag,,87.16,2.49,0.18,8,44,green leafy vegetables
+121,Niguro green,,93.25,1.15,0.15,3.4,19,green leafy vegetables
+122,Neem leaves tender,100,59.4,11.6,3,21.2,158,green leafy vegetables
+123,Poisag,,90.8,2.8,0.4,4.2,32,green leafy vegetables
+124,Patua sag,,81.4,5.1,1.1,8.1,63,green leafy vegetables
+125,Potato leaves,,88.4,4.4,0.9,3.6,40,green leafy vegetables
+126,Pumpkin leaves,,81.9,4.6,0.8,6.9,53,green leafy vegetables
+127,Purple Cabbage,90,91.6,1.9,0.2,52,66,green leafy vegetables
+128,Rape leaves,,84.9,5.1,0.4,5.9,48,green leafy vegetables
+129,Radish leaves,100,90.8,3.8,0.4,2.4,28,green leafy vegetables
+130,Rapes leaves dried,,7.4,27,2.9,40.7,297,green leafy vegetables
+131,Safflower leaves,66,91.1,2.5,0.6,4.5,33,green leafy vegetables
+132,Sim saag fresh,79,93.74,2.4,0.44,1.5,20,green leafy vegetables
+133,Spinach,,92.1,2,0.7,2.9,26,green leafy vegetables
+134,Sisnu leaves,,81.7,6.9,0.2,5,53,green leafy vegetables
+135,Soya leaves,,79.5,6,0.5,10.8,72,green leafy vegetables
+136,Sweet potato leaves ,100,80.7,4.2,0.8,9.7,63,green leafy vegetables
+137,Sweetchard,100,90.1,2.21,0.24,5.3,32,green leafy vegetables
+138,Tamarind leaves tender,,8.9,8.6,3,60.9,305,green leafy vegetables
+139,Tanki Sag,100,45.6,1.3,0.8,44.2,190,green leafy vegetables
+140,Thai spinach,,89.1,2.3,0.3,6.1,36,green leafy vegetables
+141,Turnip green leaves,51,81.9,4,1.5,9.4,67,green leafy vegetables
+142,Ashgourd,67,96.5,0.4,0.1,1.9,10,other vegetables
+143,Agathi flower,,92.9,1,0.5,4.4,26,other vegetables
+144,Bitter gourd,97,92.4,1.6,0.2,4.2,25,other vegetables
+145,Barela,80,90.43,0.99,0.26,6.7,33,other vegetables
+146,Bottle gourd,86,96.1,0.2,0.1,2.5,12,other vegetables
+147,Brinjal,91,92.7,1.4,0.3,4,24,other vegetables
+148,Broadbeans,88,85.4,4.5,0.1,7.2,48,other vegetables
+149,Bamboo shoottender),54,88.8,3.9,0.5,5.7,43,other vegetables
+150,Broccoli marrow,80,85.61,4.99,0.2,7.1,50,other vegetables
+151,Cauliflower,70,90.8,2.6,4,,30,other vegetables
+152,Cho-chomarrow,,92.5,0.7,0.1,5.7,27,other vegetables
+153,Cluster beans,,81,3.2,0.4,10.8,16,other vegetables
+154,Cowpea pods,,85.3,3.5,0.2,8.1,48,other vegetables
+155,Cucumber,83,96.3,0.4,0.1,2.5,13,other vegetables
+156,Chattel,79,89.72,2.04,0.18,6.1,34,other vegetables
+157,Colocasia stem,86,94,0.3,0.3,3.6,18,other vegetables
+158,Capsicum Yellow,97,88.69,0.86,0.11,17.2,73.23,other vegetables
+159,Capsicum Red,97,88.86,0.92,0.1,25.2,105.38,other vegetables
+160,Capsicum Green,97,93,0.9,0.11,25,103.6,other vegetables
+161,Chillies Akbare Fresh,100,85.77,3.81,0.62,8.2,53.42,other vegetables
+162,Chillies Akbare Dry,100,11.39,13.97,7.77,52.9,337.37,other vegetables
+163,Celery Stalks,,93.5,0.8,0.1,3.5,18,other vegetables
+164,Double bean,,73.8,8.3,0.3,12.3,85,other vegetables
+165,Drumstick flower,,85.9,3.6,0.8,7.1,50,other vegetables
+166,Drumstick,83,86.9,2.5,0.1,3.7,26,other vegetables
+167,French bean,94,91.4,1.7,0.1,4.5,26,other vegetables
+168,Field bean tender,93,86.1,3.8,0.7,6.7,48,other vegetables
+169,Jack fruit tender,,84,2.6,0.3,9.4,51,other vegetables
+170,Knol-knol,74,92.7,1.1,0.2,3.8,21,other vegetables
+171,Karonda Fresh,98,91,1.1,2.9,2.9,42,other vegetables
+172,Ladies finger,84,89.6,1.9,0.2,6.4,35,other vegetables
+173,Leeks,,78.9,1.8,0.1,17.2,77,other vegetables
+174,"Lakooch,Badher raw",,89.4,1.6,1.2,13.9,73,other vegetables
+175,"Lotus stem,dry",100,9.5,4.1,1.3,51.4,234,other vegetables
+176,Mushroom BottonGobre),88,88.5,4.6,0.8,4.3,43,other vegetables
+177,Mushroom OysterKanne),86,88,3,0.2,5.8,37,other vegetables
+178,"Mushroom,wild,dry",,17.1,16.9,,14.1,134.7,other vegetables
+179,Mango green,72,87.5,0.7,0.1,10.1,44,other vegetables
+180,Onion stalkGreen),100,87.6,0.9,0.2,8.9,41,other vegetables
+181,Pink beans,94,86.8,3.1,0.4,7,44,other vegetables
+182,Pumpkin,79,92.6,1.4,0.1,4.6,25,other vegetables
+183,Plantain flower,43,89.9,1.7,0.7,5.1,34,other vegetables
+184,Plantain green,58,83.2,1.4,0.2,14,64,other vegetables
+185,plantain stem,,88.3,0.5,0.1,90.7,42,other vegetables
+186,Pumpkin flower,,89.1,2.2,0.8,5.8,39,other vegetables
+187,Parwar,95,92,2,0.3,2.2,20,other vegetables
+188,Peas,53,72.1,7.2,0.1,15.9,93,other vegetables
+189,Papaya green,92,0.7,0.2,5.7,,27,other vegetables
+190,Ridge gourd,82,95.2,0.5,0.1,3.4,17,other vegetables
+191,"Rape,stem",91.4,0.1,1.4,4,,29,other vegetables
+192,Redgram tender,72,65.1,9.8,1,16.9,116,other vegetables
+193,Red beanSimi),91,88.85,3.5,0.1,26.6,121,other vegetables
+194,Spotted beansChirke simi),,70.72,3.34,0.75,21.8,107,other vegetables
+195,Red cowpea,34,88.5,3.1,0.1,5.2,34,other vegetables
+196,Snakegourd,98,94.6,0.5,0.3,3.3,18,other vegetables
+197,Sponge guard,83,93.13,1.03,0.11,5,26.43,other vegetables
+198,Sannhemp flower,,78.9,4.8,0.6,10.4,66,other vegetables
+199,Silkcotton flower,,86.4,1.5,0.3,9.5,47,other vegetables
+200,Spinach stalk,,93.4,0.9,0.1,3.8,20,other vegetables
+201,Sword beans,98,87.2,2.7,0.2,7.8,44,other vegetables
+202,Soyabean tender,58,1.33,14.89,2.92,15.1,146.2,other vegetables
+203,Tomato green,98,93.1,1.9,0.1,3.6,23,other vegetables
+204,Tomato red,100,93.5,1.3,0.1,3.9,21,other vegetables
+205,Tree tomato,90,86.2,1.5,0.2,6.7,35,other vegetables
+206,Tinda tender,99,93.5,1.4,0.2,3.4,21,other vegetables
+207,Vegetable marrow,94,94.8,0.5,0.1,3.5,17,other vegetables
+208,Water chesnut fresh,38,70,4.7,0.3,23.3,115,other vegetables
+209,Water chesnut dry,,13.8,13.4,0.8,68.9,70,other vegetables
+210,Water lily flower,,90.8,1.6,0.6,5.4,33,other vegetables
+211,Winged bean tender,,86.6,2.66,34,7.9,45.1,other vegetables
+212,Beet root,85,87.7,1.7,0.1,8.8,43,roots
+213,Banana rhizome,35,85.1,0.4,0.2,11.8,51,roots
+214,Colacasia,,73.1,3,0.1,21.1,97,roots
+215,Cassava,,62.5,1.2,0.3,34.7,146.3,roots
+216,Carrot,95,86,0.9,0.2,10.6,47.8,roots
+217,Cho-cho marrow root,87,76.19,1.9,0.1,20.3,89.93,roots
+218,Ghar tarul,100,58.61,4,0.1,32.6,147,roots
+219,Garlic dry,85,62,6,0.1,29.8,145,roots
+220,Gittha,66,68.31,3.72,0.9,25.2,124,roots
+221,Lotus root,,85.9,1.7,0.1,11.3,53,roots
+222,Mango ginger,87,85,1.1,0.7,10.5,53,roots
+223,Onion(Small),,84.3,1.8,0.1,12.6,59,roots
+224,Onion(Big),95,86.6,1.2,0.1,10.4,47,roots
+225,Potato,85,74.7,1.6,0.1,22.4,97,roots
+226,Potato(Red),100,82,1.1,0.52,15,72,roots
+227,Potato boiled(without skin),,81,1.9,0.1,16.3,72,roots
+228,Potato chips fried,,4.2,3.6,43.8,45.9,562,roots
+229,Rani vyakur,78,72.72,2.3,0.2,22.7,101,roots
+230,Radish Pink,98,90.8,0.6,0.3,6.8,32,roots
+231,Radishh white,99,94.4,0.7,0.1,22.7,101,roots
+232,Sweet Potato(white)),97,68.5,1.2,0.3,28.3,121,roots
+233,Sweet potato red,93,67.6,1.35,0.5,29.1,126,roots
+234,Turnip red,60,88.9,1.2,0.2,7.7,37,roots
+235,Apple,90,84.6,0.2,0.5,13.4,59,fruits
+236,Amalabig),95,86.7,0,0.2,13.7,54,fruits
+237,Amalasmall),93,80.92,0,0.2,,58,fruits
+238,Apricot fresh,86,85.3,1,0.3,11.6,53,fruits
+239,Apricot dried,93,19.4,1.6,0.7,73.4,306,fruits
+240,Avocado,,73.6,1.7,22.8,0.8,215,fruits
+241,Bael fruit,64,61.5,1.8,0.3,31.8,137,fruits
+242,Bael sarbet,,54.5,1.7,0.1,45.2,189,fruits
+243,Banana ripe,71,70.1,1.2,0.3,27.2,116,fruits
+244,Banyan tree figs,,74.1,1.7,2,11.8,72,fruits
+245,Bamboo fruit,,56.3,3.9,0.1,34.2,153,fruits
+246,Cashew fruit,77,86.3,0.2,0.1,12.3,51,fruits
+247,"Dates,dried",86,15.3,2.5,0.4,75.8,317,fruits
+248,"Dates,Fresh",,59.2,1.2,0.4,33.8,144,fruits
+249,Figs,99,88.1,1.3,0.2,7.6,37,fruits
+250,Grape-pale green variety,,79.2,0.5,0.3,16.5,71,fruits
+251,Grape-Blue vraiety,95,82.2,0.6,0.4,13.1,58,fruits
+252,Grapes fruits(Marsh' seedless),,88.5,1,0.1,10,45,fruits
+253,Guape fruit(trumph) juice,,92.1,0.7,0.1,7,32,fruits
+254,"Guava,hill",,85.3,0.1,0.2,9,38,fruits
+255,"Guava,country",100,81.7,0.9,0.3,11.2,51,fruits
+256,Ground apple,,83.7,1.3,0.2,14.4,64,fruits
+257,Jackfruitripe seed,30,76.2,1.9,0.1,19.8,88,fruits
+258,Jambu fruit,75,83.7,0.7,0.3,14,62,fruits
+259,Kussum fruit,,86.2,1.5,0.8,9.9,53,fruits
+260,Lapsi,59,79.9,0.5,0.02,17.68,73,fruits
+261,Lemon(Nibuwa),,85,1,0.9,11.1,57,fruits
+262,Lemon sweet,79,90.5,0.7,0.3,7.3,35,fruits
+263,Lemon Juice,,85,1,0.9,12.8,63,fruits
+264,Lichi,68,84.1,1.1,0.2,13.6,61,fruits
+265,"Lich,bastard",,83.9,1.4,0.3,13.1,61,fruits
+266,Lime,,44.6,1.5,1,10.9,59,fruits
+267,"Lime,sweet,malta",67,90.3,0.7,0.2,7.8,36,fruits
+268,Lakuch,76,82.1,0.7,1.1,3.3,66,fruits
+269,Laruat,76,88.2,0.6,0.3,9.6,43,fruits
+270,"Mango,Ripe",74,81,0.6,0.4,16.9,74,fruits
+271,"Mango,Ripe / Bombay",,77.75,1.2,0.03,21,89,fruits
+272,"Mango,Ripe / Malda",,80.07,1.4,0.09,17.9,78,fruits
+273,"Mango,Ripe / Sukutara",,81.41,1,0.17,16.9,73,fruits
+274,"Mango,Ripe / Dashari",,80.79,1.1,0.06,17.6,75,fruits
+275,"Mango,Ripe / Jarda",,83.32,0.8,0.03,15,63,fruits
+276,"Mango,Ripe / Kalkatiya",,79.51,0.4,0.01,19,80,fruits
+277,"Mango,Ripe / Fajali",,83.52,0.9,0.15,15,65,fruits
+278,"Mango,Ripe / Amrapali",,82.54,1.5,0.09,15.4,68,fruits
+279,"Mango,Ripe / Chausa",,80.57,0.77,0.08,17.8,75,fruits
+280,"Mango,Ripe / Mallika",,81.44,0.61,0.09,17.4,73,fruits
+281,"Mahua,ripe",,73.6,1.4,1.6,22.7,111,fruits
+282,Mulberry,100,86.5,1.1,0.4,10.3,49,fruits
+283,Melon water,78,95.8,0.2,0.2,3.3,16,fruits
+284,Neem fruit,,81.9,1.3,1,15.1,75,fruits
+285,Junar,,87.51,ND,0.05,11.9,48,fruits
+286,Orange,67,87.6,0.7,0.2,10.9,48,fruits
+287,Orange juice,,97.7,0.2,0.1,1.9,9,fruits
+288,Papaya(ripe),75,90.8,0.6,0.1,7.2,32,fruits
+289,Persimon with peel,,81.96,0.7,0.138,,–,fruits
+290,Persimon without peel,,83.28,0.9,0.11,,–,fruits
+291,Peaches,88,86,1.2,0.3,10.5,50,fruits
+292,Phalsa,59,80.8,1.3,0.9,14.7,72,fruits
+293,Pinapple,60,87.8,0.4,0.1,10.8,46,fruits
+294,Pipal tree figs,,62.4,2.6,1.7,21.2,110,fruits
+295,Plums,90,86.9,0.7,0.5,11.1,52,fruits
+296,Pomegranate,68,78,1.6,0.1,14.5,65,fruits
+297,Pummelo,,88,0.6,0.1,10.2,44,fruits
+298,Pear,,86,0.6,0.2,11.9,52,fruits
+299,Pani amala,100,92.2,2.6,0.14,3.4,26,fruits
+300,Raspbery,,84.8,1,0.6,11.7,56,fruits
+301,Red rapsberry(kafal),,83.12,1.72,0.1,8.2,41,fruits
+302,Rayan,,68.6,0,9.6,27.7,134,fruits
+303,Asafoetida,,16,4,1.1,67.7,297,spices
+304,AniseSounf,,2.2,17.5,3.4,60,341,spices
+305,Arithippilli Arisithipplli,,12.5,13.2,4.7,58,329,spices
+306,Betal nutSupari),,11.5,4.7,10.2,66.1,375,spices
+307,Cinnamon,,8.8,6.1,1.9,64.6,259,spices
+308,Cardamom,,20,10.2,2.2,42.1,229,spices
+309,"Chilliy,dry",,10,15.9,6.2,31.6,246,spices
+310,"Chilliy,green",90,85.7,2.9,0.6,3,29,spices
+311,"Cloves,dry",100,25.2,5.2,8.9,46,286,spices
+312,"Coriander,dry",,11.2,14.4,16.1,21.6,288,spices
+313,Cumin seed,,11.9,18.7,15,36.6,356,spices
+314,Fengreek seed,,13.7,26.2,5.8,44.1,333,spices
+315,Garlic dry,85,62,6.3,0.1,29.8,145,spices
+316,"Ginger,fresh",,80.9,2.3,0.9,12.3,67,spices
+317,Mace,,15.9,6.5,24.5,47.8,437,spices
+318,Nutmeg,,14.3,7.5,36.4,28.5,472,spices
+319,Omum,,7.4,17.1,21.8,24.6,363,spices
+320,pepper dry,95,18.2,11.5,6.8,49.2,304,spices
+321,Pepper green,81,70.6,4.8,2.7,13.7,98,spices
+322,Tamarind pulp,,20.9,3.1,0.1,67.4,283,spices
+323,Turmeric,100,13.1,6.3,5.1,69.4,349,spices
+324,Timur,100,13.54,,6.24,,–,spices
+325,Zimbu,100,18.44,,,,–,spices
+326,Almond,,5.2,20.8,58.9,10.5,665,nuts
+327,Cashew nut,,5.9,21.2,46.9,22.3,596,nuts
+328,Coconut(dry),,4.3,6.8,62.3,18.4,662,nuts
+329,Coconut(fresh),100,36.3,4.5,41.6,13,444,nuts
+330,chilgoza,,4,13.9,49.3,29,615,nuts
+331,Filinge(Jhhusetil),,2.2,25.6,41.4,22.3,567,nuts
+332,Groundnut,73,3,25.3,40.1,26.1,567,nuts
+333,"Groundnut,roasted",69,1.7,26.2,39.8,26.7,570,nuts
+334,Linseed seeds,99,6.5,20.3,37.7,28.3,533,nuts
+335,Walnut,45,4.5,15.6,64.5,11,687,nuts
+336,Silam,100,6.2,20,22.1,30.6,461,nuts
+337,Mustard seed,,8.5,20,39.7,23.8,541,nuts
+338,Niger seed,,4.2,23.9,39,17.1,515,nuts
+339,Pistachio nut,,5.6,19.8,53.5,16.2,626,nuts
+340,Poppy Seed,,4.9,15.1,2.3,75.3,382,nuts
+341,Safflower seed,,5.5,13.5,25.6,17.9,356,nuts
+342,Sunflower seed,52,5.5,19.8,52.1,17.9,620,nuts
+343,"Seasome seed,black",,6.36,21.3,47.97,9.33,554,nuts
+344,"Seasome seed,white",,4.28,25.9,49.57,12.4,599,nuts
+345,"Seasome seed,brown",,5.88,23.4,37.3,22.9,521,nuts
+346,Siltimur,,5.1,7.1,42.15,26.3,542,nuts
+347,Bhang ko geda,,6.2,19.9,34.8,30.6,516,nuts
+348,Buffalo meat,,78.7,19.4,0.9,0,86,meat
+349,Buff Sausage,100,67.34,15.9,5.64,8.8,150,meat
+350,Chicken flesh,68.7,18.8,17.6,0,,187,meat
+351,Chicken Sausage,100,64.62,16.5,18.8,0,253,meat
+352,Duck meat,,72.3,21.6,4.8,0,130,meat
+353,Field rat's meet,73.9,23.6,1,0.9,,104,meat
+354,Finch,68.8,26.6,3,,,133,meat
+355,Goat-Meat(Lean meat),,74.2,21.4,3.6,0,118,meat
+356,"Liver,goat",76.3,20,3,,,107,meat
+357,"Liver,sheep",70.4,19.3,7.5,1.3,,150,meat
+358,Mutton muscle,,71.5,18.5,13.3,,194,meat
+359,Pork muscle,,77.4,18.7,4.4,,114,meat
+360,Pigeon meat,,70.4,23.3,4.9,,137,meat
+361,Ham Sliced(Barume),100,65.49,20.8,23.9,12.5,349,meat
+362,Ham(Smoked),100,63.2,21.4,15,0.4,122,meat
+363,Pork Bacon(Swiss Gourmet),100,50,14.9,21,10.1,289,meat
+364,Pork Prine Bacon,,51.62,18.8,23,3.4,296,meat
+365,Pork Sausages,100,63.36,19.2,28.95,13.7,392,meat
+366,Salami Cooked,100,57,17.8,4,0,172,meat
+367,"Snail,small",,78.9,12.6,1,3.7,74,meat
+368,"Snail,big",,74.1,10.5,0.6,12.4,97,meat
+369,Turtle meat,,79.4,16.5,1.5,1.5,86,meat
+370,Venison,,75.3,21,0.6,1.9,97,meat
+371,Duck-egg,,71,13.5,13.5,0.8,181,egg
+372,Hen-egg,,73.7,13.3,13.3,,173,egg
+373,Quial-egg,,74.35,13,11.09,0.41,158,egg
+374,Bam fish,,74.8,16.1,0.9,6.9,100,egg
+375,Hisla,,53.7,21.8,19.4,2.9,273,egg
+376,Katla,,73.7,19.5,2.4,2.9,111,egg
+377,Kol,,70,14.8,8.8,4.4,156,egg
+378,Mungri,,78.5,15,1,4.2,86,egg
+379,Singhi,,68,22.8,0.6,6.9,124,egg
+380,Tengra fish,,70,19.2,6.4,2.3,144,egg
+381,Prawn,45,77.4,19.1,1,0.8,89,egg
+382,Crab small,,65.3,11.2,9.8,9.1,169,egg
+383,Rahu,78,76.7,16.7,1.4,4.4,97,egg
+384,Dry fish(Sun dried),,13.96,64.9,4.21,16.9,366,egg
+385,Dried Fish,19.7,58.5,11.14,,,,egg
+386,Salted Dry Fish,,13.4,62.2,6.03,18.4,377,egg
+387,Smoked Dry Fish,,10.42,70.8,7.23,11.6,391,egg
+388,Buffalo milk,100,81,4.3,6.5,7.4,105,dairy
+389,Cow milk,100,87.5,3.2,4,4.4,67,dairy
+390,Curd,100,89.1,3.1,4,3,60,dairy
+391,Goat milk,100,86.8,3.3,4.5,4.6,72,dairy
+392,Paneer,100,47.5,23.7,26,0.6,331,dairy
+393,Cheese,100,40.3,24.1,25.1,6.3,348,dairy
+394,Oil,100,,,100,,900,oil
+395,Areca nut,,31.3,4.9,4.4,47.2,249,misc
+396,Betel leaves,,85.4,3.1,0.8,6.1,44,misc
+397,"Biscuit,salty",100,4.5,6.6,32.4,54.6,534,misc
+398,"Biscuit,sweet",100,5.4,6.4,15.2,71.9,450,misc
+399,Brown bread,100,39,8.8,1.4,49,244,misc
+400,Bread white,100,39,7.8,0.7,51.9,245,misc
+401,Corn flakes,100,2.2,7.4,0.5,,,misc
+402,Canu sugar,100,0.4,0.1,0,99.4,398,misc
+403,Coconut tender,90.8,0.9,1.1,6.3,,41,misc
+404,coconut water,100,93.8,1.4,0.1,4.4,24,misc
+405,Grounnut cake,,7.2,40.9,7.4,38.8,386,misc
+406,Honey,,2.06,0.3,0,79.5,319,misc
+407,jaggary white,,8.6,3.7,0.1,85.2,357,misc
+408,Chaku,,3.6,3.9,0.5,89.7,379,misc
+409,Dhatelo,,6.72,27.5,30.4,29.9,504,misc
+410,Jack fruit seeds,,64.5,6.6,0.4,25.8,133,misc
+411,Jaggary cane,,3.9,0.4,0.1,95,383,misc
+412,Cooked rice,,67.5,2.5,0.17,29.4,129,cooked
+413,Dal(pulses),,86.3,3.3,0.6,7.4,48.7,cooked
+414,Green vegetables,,83.1,2,2.61,7.3,61,cooked
+415,Mixed vegetables,,82.9,1.94,2.51,7.5,61,cooked
+416,Whole wheat bread,,,8,1,44,218,cooked
+417,Maize dough(Dhindo),,,2.8,1.2,22.2,111,cooked
+418,Bengalgram vegetables,,,5.92,1.85,21.5,127,cooked
+419,Samosa,,41.3,4.6,14.8,36.7,298,cooked
+420,Aaluchap,,51.5,4.2,11.5,29.6,238,cooked
+421,Pakauda,,29.5,5.4,21.1,37.3,361,cooked
+422,Sel,,22.1,4.5,11.7,61.3,225,cooked
+423,jeri,,15.8,2.4,21.3,60.4,445,cooked
+424,Buff Momo,100,53.2,11.7,7.74,24.6,215,cooked
+425,Chicken Momo,100,56.4,9.8,8.06,23.6,206,cooked
+426,Paneer Momo,100,48,9.3,11.7,28.1,256,cooked
+427,Paneer+Veg Momo,100,64.9,4.7,2.62,25.1,143,cooked
+428,Vegetable Momo,100,62.9,4.4,2.25,27.6,148,cooked
+429,Aalu Naan,100,5.3,0.33,41.9,,175,cooked
+430,Plain naan,100,32.4,7.6,1.53,57.9,269,cooked
+431,Butter naan,100,34.6,7.5,4.44,55.1,283,cooked
+432,Kimma naan(mutton),100,45.3,11.1,7.99,30.2,261,cooked
+433,Chicken naan,100,43.3,9.6,6.28,39.3,252,cooked
+434,Veg naan,100,47.7,6.4,3.53,40.8,221,cooked
+435,Paneer naan,100,44.2,7.73,38.1,,256,cooked
