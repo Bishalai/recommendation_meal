@@ -1,4 +1,4 @@
 # recommendation_meal
-simple implementations and fuctions.. backend and frontend done by other guys
+simple implementations and fuctions.. backend in django coming soon
 
 more to follow soon..
